@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM dockerpull.com/ruby:latest
 ENV DEBIAN_FRONTEND noninteractive
 
 Label MAINTAINER Amir Pourmand
@@ -34,7 +34,7 @@ RUN gem install jekyll bundler
 
 RUN bundle install --no-cache
 # && rm -rf /var/lib/gems/3.1.0/cache
-EXPOSE 8080
+EXPOSE 8081
 
 COPY bin/entry_point.sh /tmp/entry_point.sh
 
