@@ -11,6 +11,7 @@ profile:
   more_info: >
     <p>联想上海研究院</p>
     <p>上海市浦东新区</p>
+    <p><a href="mailto:zhanghy2025@sjtu.edu.cn">zhanghy2025@sjtu.edu.cn</a></p>
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
