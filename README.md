@@ -209,11 +209,13 @@ npx prettier README.md _config.yml "_pages/**/*.md" "_data/**/*.yml" --check
 主流程是 [.github/workflows/deploy.yml](./.github/workflows/deploy.yml)：
 
 1. `main` / `master` 上相关文件的 push、pull request，或手动触发工作流。
-2. 检出源码，配置 Ruby 3.2.2 和 Bundler 依赖缓存。
+2. 在 Ubuntu 22.04 runner 上检出源码，配置 Ruby 3.2.2 和 Bundler 依赖缓存。
 3. 仅在工作流工作区中将 `giscus.repo` 设置为当前仓库，不提交该修改。
 4. 安装 ImageMagick、Jupyter，使用生产环境执行 Jekyll 构建。
 5. 根据 [purgecss.config.js](./purgecss.config.js) 扫描生成的 HTML / JS，清理未使用的 CSS。
 6. 非 pull request 构建通过 GitHub Pages Deploy Action 发布 `_site/` 到发布分支（默认 `gh-pages`）；pull request 只验证构建。
+
+部署、站内链接和 Axe 工作流固定使用 `ubuntu-22.04`，以匹配 Ruby 3.2.2 的官方预构建包，避免 `ubuntu-latest` 升级后找不到对应的 Ruby 安装包。
 
 这套工作流发布的是已构建静态文件。GitHub 仓库 Pages 设置应与发布分支及根目录对应，不应依赖 GitHub Pages 的默认 Jekyll 构建来执行这些自定义插件。只修改本 README 不会自动触发部署。
 
