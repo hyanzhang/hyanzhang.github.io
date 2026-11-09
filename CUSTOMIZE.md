@@ -9,13 +9,13 @@ The project is structured as follows, focusing on the main components that you w
 ```txt
 .
 ├── 📂 assets/: contains the assets that are displayed in the website
-│   └── 📂 json/
-    │   └── 📄 resume.json: CV in JSON format (https://jsonresume.org/)
+│   └── 📂 json/ (optional)
+    │   └── 📄 resume.json: create this file to use JSON Resume (https://jsonresume.org/)
 ├── 📂 _bibliography/
 │   └── 📄 papers.bib: bibliography in BibTeX format
 ├── 📄 _config.yml: the configuration file of the template
 ├── 📂 _data/: contains some of the data used in the template
-│   ├── 📄 cv.yml: CV in YAML format, used when assets/json/resume.json is not found
+│   ├── 📄 cv.yml: CV in YAML format, used when no JSON resume data is configured
 │   └── 📄 repositories.yml: users and repositories info in YAML format
 ├── 📂 _includes/: contains code parts that are included in the main HTML file
 │   └── 📄 news.liquid: defines the news section layout in the about page
@@ -44,9 +44,9 @@ All changes made to this file are only visible after you rebuild the website. Th
 
 ## Modifying the CV information
 
-There are currently 2 different ways of generating the CV page content. The first one is by using a json file located in [assets/json/resume.json](assets/json/resume.json). It is a [known standard](https://jsonresume.org/) for creating a CV programmatically. The second one, currently used as a fallback when the json file is not found, is by using a yml file located in [\_data/cv.yml](_data/cv.yml). This was the original way of creating the CV page content and since it is more human readable than a json file we decided to keep it as an option.
+There are 2 ways of generating the CV page content. This repository currently uses [\_data/cv.yml](_data/cv.yml), which is an empty YAML list ready for your own information. The theme also supports [JSON Resume](https://jsonresume.org/), a standard for creating a CV programmatically. The demonstration JSON resume has been removed.
 
-What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/cv.yml](_data/cv.yml). If you want to use the [\_data/cv.yml](_data/cv.yml) file as the source of your CV, you must delete the [assets/json/resume.json](assets/json/resume.json) file.
+To use JSON Resume, create `assets/json/resume.json` and add a `jekyll_get_json` entry with `data: resume` and `json: assets/json/resume.json` in [\_config.yml](_config.yml). Loaded JSON resume data takes precedence over YAML. To use YAML instead, leave `jekyll_get_json: []` or remove the resume entry from that list.
 
 ## Modifying the user and repository information
 
