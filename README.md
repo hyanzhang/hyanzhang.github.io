@@ -112,7 +112,7 @@ Markdown / HTML 正文 + YAML Front Matter
 - [CUSTOMIZE.md](./CUSTOMIZE.md)：主题功能和定制说明。
 - [FAQ.md](./FAQ.md)：常见问题。
 - [CONTRIBUTING.md](./CONTRIBUTING.md)：上游贡献指南。
-- [README_intro.md](./README_intro.md)：保留的上游主题介绍，具体站点状态以本文及配置为准。
+- [README_intro.md](./README_intro.md)：保留的上游主题介绍；社区示例网站目录统一链接到上游项目，具体站点状态以本文及配置为准。
 - [LICENSE](./LICENSE)：主题许可证，保留原有授权和署名。
 
 `_site/`、依赖目录和缓存不属于内容源；`_config.yml` 的 `exclude` 还排除了主要开发文件和说明文档。普通 Markdown 文件不会仅因存在就成为页面，站点内容需要 Front Matter 或集合生成规则。
